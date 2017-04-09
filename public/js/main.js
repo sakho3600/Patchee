@@ -58,14 +58,12 @@ function CenterControl(controlDiv, map) {
 			    console.log( typeof JSON.stringify(potholePost));
 			    console.log( JSON.stringify(potholePost));
 
-			    var url = 'http://4ddc2572.ngrok.io/Patchee/app/endpoint.php';
+			    var url = './endpoint.php';
 			    var params = potholePost;
 			    var xhr = new XMLHttpRequest();
 			    xhr.open("POST", url, true);
-
-			    xhr.setRequestHeader("Content-Type", "application/json");
-			    xhr.send(JSON.stringify(potholePost));
-
+			    xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+			    xhr.send("data=" + JSON.stringify(potholePost));
 		    });
 		} else {
 		  handleLocationError(false, infoWindow, map.getCenter());
